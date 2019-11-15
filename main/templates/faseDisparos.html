@@ -1,0 +1,226 @@
+{% extends "templateBase.html" %}
+{% block titulo %}Batalla Naval{% endblock %}
+{% block header %}Fase de Batalla{% endblock %}
+{% block contenido %}
+
+<!-- Este template genera las matrices del jugador y de la computador, además contiene un
+formulario que le permite al jugador seleccionar a donde va a disparar, cuando uno
+de los dos haya hundido todos los barcos del enemigo se quitará el formulario y se mostrará
+el ganador -->
+    
+<div class="contenedor">  
+    <div class="tablaContenedor">
+        <br>
+        <font size = "+3"><b>{{nombre}}</b></font>
+        <table>
+            <tr>
+                <td></td>
+                <td><center><b><font size = "+2">1</font></b></center></td>
+                <td><center><b><font size = "+2">2</font></b></center></td>
+                <td><center><b><font size = "+2">3</font></b></center></td>
+                <td><center><b><font size = "+2">4</font></b></center></td>
+                <td><center><b><font size = "+2">5</font></b></center></td>
+                <td><center><b><font size = "+2">6</font></b></center></td>
+                <td><center><b><font size = "+2">7</font></b></center></td>
+                <td><center><b><font size = "+2">8</font></b></center></td>
+                <td><center><b><font size = "+2">9</font></b></center></td>
+                <td><center><b><font size = "+2">10</font></b></center></td>
+            </tr>
+            {% for x in matrizAliada %}
+                <tr>
+                    {% if loop.index == 1 %}
+                        <td class="greyTile"><center><b><font size="+2">a</font></b></center></td>
+                    {% endif %}
+                    {% if loop.index == 2 %}
+                        <td class="greyTile"><center><b><font size="+2">b</font></b></center></td>
+                    {% endif %}
+                    {% if loop.index == 3 %}
+                        <td class="greyTile"><center><b><font size="+2">c</font></b></center></td>
+                    {% endif %}
+                    {% if loop.index == 4 %}
+                        <td class="greyTile"><center><b><font size="+2">d</font></b></center></td>
+                    {% endif %}
+                    {% if loop.index == 5 %}
+                        <td class="greyTile"><center><b><font size="+2">e</font></b></center></td>
+                    {% endif %}
+                    {% if loop.index == 6 %}
+                        <td class="greyTile"><center><b><font size="+2">f</font></b></center></td>
+                    {% endif %}
+                    {% if loop.index == 7 %}
+                        <td class="greyTile"><center><b><font size="+2">g</font></b></center></td>
+                    {% endif %}
+                    {% if loop.index == 8 %}
+                        <td class="greyTile"><center><b><font size="+2">h</font></b></center></td>
+                    {% endif %}
+                    {% if loop.index == 9 %}
+                        <td class="greyTile"><center><b><font size="+2">i</font></b></center></td>
+                    {% endif %}
+                    {% if loop.index == 10 %}
+                        <td class="greyTile"><center><b><font size="+2">j</font></b></center></td>
+                    {% endif %}
+                    {% for y in x %}
+
+                        {% if y == "e" %}
+                            <td id="greyTile"></td>
+                        {% endif %}
+
+                        {% if y == "s" %}
+                            <td id="greenTile"></td>
+                        {% endif %}
+
+                        {% if y == "m" %}
+                            <td id="blackTile"></td>
+                        {% endif %}
+
+                        {% if y == "h" %}
+                            <td id="redTile"></td>
+                        {% endif %}
+
+                    {% endfor %}
+                    
+                </tr>
+                
+            {% endfor %}
+        </table>
+    </div>
+  
+    <div class="tablaContenedor">
+        <br>
+        <font size = "+3"><b>Enemigo</b></font>
+        <table>
+            <tr>
+                <td></td>
+                <td><center><b><font size = "+2">1</font></b></center></td>
+                <td><center><b><font size = "+2">2</font></b></center></td>
+                <td><center><b><font size = "+2">3</font></b></center></td>
+                <td><center><b><font size = "+2">4</font></b></center></td>
+                <td><center><b><font size = "+2">5</font></b></center></td>
+                <td><center><b><font size = "+2">6</font></b></center></td>
+                <td><center><b><font size = "+2">7</font></b></center></td>
+                <td><center><b><font size = "+2">8</font></b></center></td>
+                <td><center><b><font size = "+2">9</font></b></center></td>
+                <td><center><b><font size = "+2">10</font></b></center></td>
+            </tr>
+            {% for x2 in matrizEnemiga %}
+                <tr>
+                    {% if loop.index == 1 %}
+                        <td class="greyTile"><center><b><font size="+2">a</font></b></center></td>
+                    {% endif %}
+                    {% if loop.index == 2 %}
+                        <td class="greyTile"><center><b><font size="+2">b</font></b></center></td>
+                    {% endif %}
+                    {% if loop.index == 3 %}
+                        <td class="greyTile"><center><b><font size="+2">c</font></b></center></td>
+                    {% endif %}
+                    {% if loop.index == 4 %}
+                        <td class="greyTile"><center><b><font size="+2">d</font></b></center></td>
+                    {% endif %}
+                    {% if loop.index == 5 %}
+                        <td class="greyTile"><center><b><font size="+2">e</font></b></center></td>
+                    {% endif %}
+                    {% if loop.index == 6 %}
+                        <td class="greyTile"><center><b><font size="+2">f</font></b></center></td>
+                    {% endif %}
+                    {% if loop.index == 7 %}
+                        <td class="greyTile"><center><b><font size="+2">g</font></b></center></td>
+                    {% endif %}
+                    {% if loop.index == 8 %}
+                        <td class="greyTile"><center><b><font size="+2">h</font></b></center></td>
+                    {% endif %}
+                    {% if loop.index == 9 %}
+                        <td class="greyTile"><center><b><font size="+2">i</font></b></center></td>
+                    {% endif %}
+                    {% if loop.index == 10 %}
+                        <td class="greyTile"><center><b><font size="+2">j</font></b></center></td>
+                    {% endif %}
+                    {% for y2 in x2 %}
+
+                        {% if y2 == "e" %}
+                            <td id="greyTile"></td>
+                        {% endif %}
+
+                        {% if y2 == "s" %}
+                            <td id="greenTile"></td>
+                        {% endif %}
+
+                        {% if y2 == "m" %}
+                            <td id="blackTile"></td>
+                        {% endif %}
+
+                        {% if y2 == "h" %}
+                            <td id="redTile"></td>
+                        {% endif %}
+
+                    {% endfor %}
+                    
+                </tr>
+                
+            {% endfor %}
+        </table>
+    </div>
+    <div>
+        {% if ganador == "" %}
+            <form action="" method="POST">
+                {{ form.hidden_tag() }}
+                <table>
+                    <tr>
+                        <td>Letra</td>
+                        <td>
+                            {{form.x}} <br>
+                            {% for error in form.x.errors %}
+                            <span style="color: red;">{{error}}</span>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Numero</td>
+                        <td>
+                            {{form.y}} <br>
+                            {% for error in form.y.errors %}
+                            <span style="color: red;">{{error}}</span>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            {{ form.submit() }}
+                        </td>
+                    </tr>
+                    {% if error == 1 %}
+                        <tr>
+                            <td><span style="color: red;">Hubo un error</span></td>
+                        </tr>
+                    {% else %}
+                        {% if primero == 0 %}
+                            {% if hitEnemigo == "" %}
+                                <tr><td>Fallaste</td></tr>
+                            {% else %}
+                                {% if hundidoEnemigo == "" %}
+                                    <tr><td>Le diste a un {{hitEnemigo}}</td></tr>
+                                {% else %}
+                                    <tr><td>Hundiste un {{hundidoEnemigo}}</td></tr>
+                                {% endif %}
+                            {% endif %}
+
+                            {% if hitAliado == "" %}
+                                <tr><td>El enemigo falló</td></tr>
+                            {% else %}
+                                {% if hundidoAliado == "" %}
+                                    <tr><td>Le dieron a tu {{hitAliado}}</td></tr>
+                                {% else %}
+                                    <tr><td>Hundieron tu {{hundidoAliado}}</td></tr>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                </table>
+            </form>
+        {% else %}
+            <h4>Ha ganado {{ganador}}!</h4> <br>
+            <a href="/nombre/">Jugar de nuevo</a> <br>
+            <a href="/">Inicio</a>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

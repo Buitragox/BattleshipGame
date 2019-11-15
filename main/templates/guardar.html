@@ -1,0 +1,19 @@
+{% extends "templateBase.html" %}
+{% block titulo %}Batalla Naval{% endblock %}
+{% block header %}Fase Colocación{% endblock %}
+{% block contenido %}
+
+<!-- Este template contiene un boton que confirma que el usuario quiere guardar sus ubicaciones
+y le da un link para seguir a la fase de batalla -->
+{% if not(guardar) %}
+    <form action="" method="POST">
+        <input type="submit" value="Guardar ubicaciones">
+    </form>
+{% else %}
+    Posiciones guardadas
+{% endif %}
+
+<a href="/faseDisparos">Continuar a la fase de batalla</a>
+
+
+{% endblock %}

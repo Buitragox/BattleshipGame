@@ -1,0 +1,24 @@
+{% extends "templateBase.html" %}
+{% block titulo %}Ranking{% endblock %}
+{% block header %}Ranking{% endblock %}
+{% block contenido %}
+<!-- Este template se encarga de crear el ranking por mayor número de victorias -->
+    <div>
+        {% if jugadores|length == 0 %}
+            No hay ranking
+        {% else %}
+            <ul>
+                {% for jug in jugadores %}
+                    <li>
+                        {{ jug[0] }}
+                        <br>Victorias: {{jug[1][0]}}
+                        <br>Derrotas: {{jug[1][1]}}
+                        <br>Menor cantidad de disparos: {{jug[1][2]}}
+                        <br>------------------------------------------
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+{% endblock %}

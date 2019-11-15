@@ -1,0 +1,34 @@
+{% extends "templateBase.html" %}
+{% block titulo %}Batalla Naval{% endblock %}
+{% block header %}Fase Colocación{% endblock %}
+{% block contenido %}
+
+<!-- Este template muestra un boton que le permite al usuario cargar el archivo JSON
+y contiene un boton para confirmar la selección -->
+
+{% if not(check) %}
+    <form action="" method="POST">
+        <table>
+            <tr>
+                <td><input type="file" name="file"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" name="Cargar"></td>
+            </tr>
+            {% if not(primero) %}
+            <tr>
+                <td><span style="color: red;">Error al cargar el archivo</span></td>
+            </tr>
+            {% endif %}
+            <tr>
+                <a href="/faseColocacion/">Colocar barcos manualmente</a>
+            </tr>
+        </table>
+    </form>
+{% else %}
+    <a href="/faseDisparos/">Pasar a fase de disparos</a> <br>
+{% endif %}
+
+
+
+{% endblock %}

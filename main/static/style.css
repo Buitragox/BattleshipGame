@@ -1,0 +1,57 @@
+.header{
+    background-color: crimson;
+}
+
+.tablaContenedor{
+    width: 35%;
+   
+}
+
+li{
+    padding-top: 0.4em;
+    
+}
+
+.contenedor{
+    display: flex;
+    flex-direction: row;
+}
+
+.formUbicaciones{
+    width: 50%;
+}
+
+#normalTile{
+    background-color: white;
+    width: 2em;
+    height: 2em;
+    border: 0em solid rgb(29, 29, 29);
+}
+
+#greyTile{
+    background-color: lightgrey;
+    width: 2em;
+    height: 2em;
+    border: 0.2em solid rgb(29, 29, 29);
+}
+
+#blackTile{
+    background-color: rgb(17, 17, 17);
+    width: 2em;
+    height: 2em;
+    border: 0.2em solid rgb(29, 29, 29);
+}
+
+#redTile{
+    background-color: red;
+    width: 2em;
+    height: 2em;
+    border: 0.2em solid rgb(29, 29, 29);
+}
+
+#greenTile{
+    background-color: rgb(132, 212, 13);
+    width: 2em;
+    height: 2em;
+    border: 0.2em solid rgb(29, 29, 29);
+}

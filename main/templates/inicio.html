@@ -1,0 +1,53 @@
+{% extends "templateBase.html" %}
+{% block titulo %}Batalla Naval{% endblock %}
+{% block header %}Batalla Naval{% endblock %}
+{% block contenido %}
+<!-- Este template contiene las reglas del juego y las pantalla de inicio del juego -->
+<br><b><font size = "+3">Bienvenido a Batalla naval!</font></b>
+<br><h3>Reglas y explicaciones</h3>
+<ul>
+    <li>
+        No se pueden superponer barcos.
+    </li>
+    <li>
+        Solo puedes disparar a casillas a las que no hayas disparado antes.
+    </li>
+    <li>
+        Hay 5 barcos en total:
+        <ul>
+            <li>Carrier: 5 casillas</li>
+            <li>Battleship: 4 casillas</li>
+            <li>Cruiser: 3 casillas</li>
+            <li>Submarine: 3 casillas</li>
+            <li>Destroyer: 2 casillas</li>
+        </ul>
+    </li>
+    <li>
+        Si posicionas un barco en vertical este se posicionara hacia abajo.
+    </li>
+    <li>
+        Si posicionas un barco en horizontal se posicionara hacia la derecha.
+    </li>
+    <li>
+        Los archivos con las posiciones se gaurdan automaticamente en la carpeta "Ubicaciones Guardadas" <br>
+        en la caperta del juego.
+    </li>
+    <li>
+        Si deseas hacer manualmente un archivo JSON con las posiciones de los barcos <br>
+        debes almacenarlo en la carpeta "Ubicaciones Guardadas" del juego, de lo contrario <br>
+        no podras usarlo, también debe seguir la misma estructura de los archivos del juego.
+    </li>
+    <li>
+        Una vez hayas hundido todos los barcos enemigos ganaras.
+    </li>
+    <li>
+        Si nunca has jugado antes no te preocupes, el juego es muy sencillo e intuitivo <br>
+        y no toma más de 5 minutos en aprender.
+    </li>
+    <li>
+        <b>Disfruta!</b>
+    </li>
+</ul>
+
+
+{% endblock %}

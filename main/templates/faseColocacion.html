@@ -1,0 +1,129 @@
+{% extends "templateBase.html" %}
+{% block titulo %}Batalla Naval{% endblock %}
+{% block header %}Fase Colocación{% endblock %}
+{% block contenido %}
+
+<!-- Este template muestra la matriz del jugador y le permite ubicar sus barcos
+por medio de un formulario, una vez se hayan ubicado todos los barcos se le da la opción
+de guardar sus ubicaciones o seguir a la fase de batalla -->
+{% if flota|length < 5 %}
+    <div class="contenedor">  
+        <div class="tablaContenedor">
+            <br>
+            <font size = "+3"><b>{{nombre}}</b></font>
+            <table>
+                <tr>
+                    <td></td>
+                    <td><center><b><font size = "+2">1</font></b></center></td>
+                    <td><center><b><font size = "+2">2</font></b></center></td>
+                    <td><center><b><font size = "+2">3</font></b></center></td>
+                    <td><center><b><font size = "+2">4</font></b></center></td>
+                    <td><center><b><font size = "+2">5</font></b></center></td>
+                    <td><center><b><font size = "+2">6</font></b></center></td>
+                    <td><center><b><font size = "+2">7</font></b></center></td>
+                    <td><center><b><font size = "+2">8</font></b></center></td>
+                    <td><center><b><font size = "+2">9</font></b></center></td>
+                    <td><center><b><font size = "+2">10</font></b></center></td>
+                </tr>
+                {% for x in matriz %}
+                    <tr>
+                        {% if loop.index == 1 %}
+                            <td class="greyTile"><center><b><font size="+2">a</font></b></center></td>
+                        {% endif %}
+                        {% if loop.index == 2 %}
+                            <td class="greyTile"><center><b><font size="+2">b</font></b></center></td>
+                        {% endif %}
+                        {% if loop.index == 3 %}
+                            <td class="greyTile"><center><b><font size="+2">c</font></b></center></td>
+                        {% endif %}
+                        {% if loop.index == 4 %}
+                            <td class="greyTile"><center><b><font size="+2">d</font></b></center></td>
+                        {% endif %}
+                        {% if loop.index == 5 %}
+                            <td class="greyTile"><center><b><font size="+2">e</font></b></center></td>
+                        {% endif %}
+                        {% if loop.index == 6 %}
+                            <td class="greyTile"><center><b><font size="+2">f</font></b></center></td>
+                        {% endif %}
+                        {% if loop.index == 7 %}
+                            <td class="greyTile"><center><b><font size="+2">g</font></b></center></td>
+                        {% endif %}
+                        {% if loop.index == 8 %}
+                            <td class="greyTile"><center><b><font size="+2">h</font></b></center></td>
+                        {% endif %}
+                        {% if loop.index == 9 %}
+                            <td class="greyTile"><center><b><font size="+2">i</font></b></center></td>
+                        {% endif %}
+                        {% if loop.index == 10 %}
+                            <td class="greyTile"><center><b><font size="+2">j</font></b></center></td>
+                        {% endif %}
+                        {% for y in x %}
+
+                            {% if y == "e" %}
+                                <td id="greyTile"></td>
+                            {% endif %}
+
+                            {% if y == "s" %}
+                                <td id="greenTile"></td>
+                            {% endif %}
+
+                        {% endfor %}
+                        
+                    </tr>
+                    
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="formUbicaciones">
+            <form action="" method="POST">
+                {{ form.hidden_tag() }}
+                <table>
+                    <tr>
+                        <td>Ubica tu {{barco}}</td>
+                    </tr>
+                    <tr>
+                        <td>Letra</td>
+                        <td>
+                            {{ form.x }} <br>
+                            {% for error in form.x.errors %}
+                            <span style="color: red;">{{ error }}</span>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Número</td>
+                        <td>
+                            {{ form.y }} <br>
+                            {% for error in form.y.errors %}
+                            <span style="color: red;">{{ error }}</span>
+                            {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>Dirección</td>
+                        <td>
+                            {{ form.direccion }} <br>
+                            {% for error in form.direccion.errors %}
+                            <span style="color: red;">{{ error }}</span>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            {{ form.submit() }}
+                        </td>
+                    </tr>
+                    {% if error == 1 %}
+                        <tr>
+                            <td><span style="color: red;">Hubo un error</span></td>
+                        </tr>
+                    {% endif %}
+                </table>
+            </form>
+        </div>
+    </div>
+{% else %}
+    <a href="/guardar/">Guardar ubicaciones</a>
+    <a href="/faseDisparos/">Continuar a fase de disparos</a>
+{% endif %}
+{% endblock %}

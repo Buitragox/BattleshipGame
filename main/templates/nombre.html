@@ -1,0 +1,26 @@
+{% extends "templateBase.html" %}
+{% block titulo %}Batalla Naval{% endblock %}
+{% block header %}Batalla Naval{% endblock %}
+{% block contenido %}
+<!-- Template que muestra un formulario para que el jugador ponga su nombre -->
+    <div>
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <table>
+                <tr>
+                    <td>Ingresa tu nombre</td>
+                    <td>
+                        {{ form.nombre(size=15) }} <br>
+                        {% for error in form.nombre.errors %}
+                        <span style="color: red;">{{ error }}</span>
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        {{ form.submit() }}
+                </tr>
+            </table>
+        </form>
+    </div>
+{% endblock %}
